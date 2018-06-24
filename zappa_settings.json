@@ -1,0 +1,16 @@
+{
+    "prod": {
+        "app_function": "app.app",
+        "aws_region": "us-west-2",
+        "profile_name": "default",
+        "project_name": "x-effect",
+        "runtime": "python3.6",
+        "s3_bucket": "zappa-vm0zsirad",
+        "timeout_seconds": 300,
+        "include": [],
+        "environment_variables": {
+          "FLASK_ENV": "production"
+        },
+        "touch_path": "/test",
+    }
+}
