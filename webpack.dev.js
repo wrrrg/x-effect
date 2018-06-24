@@ -3,7 +3,7 @@ const path = require("path");
 module.exports = {
   entry: "./src/app.js",
   output: {
-    path: path.resolve(__dirname, "static"),
+    path: path.join(__dirname, "static"),
     publicPath: "/static/",
     filename: "bundle.min.js",
     crossOriginLoading: "anonymous"
@@ -24,7 +24,7 @@ module.exports = {
   },
   devtool: "cheap-module-source-map",
   devServer: {
-    contentBase: path.resolve(__dirname, "static"),
+    contentBase: path.join(__dirname, "static"),
     proxy: {
             '/': {
                 target: 'http://localhost:5000',
