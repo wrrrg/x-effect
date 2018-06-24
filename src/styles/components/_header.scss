@@ -1,0 +1,11 @@
+.header {
+  color: white;
+  background: $dark-blue;
+  margin-bottom: $l-size;
+  padding: $m-size 0;
+}
+
+.header__title {
+  font-size: $l-size;
+  text-align: center;
+}
