@@ -1,11 +1,10 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const path = require("path");
 
 module.exports = {
   entry: "./src/app.js",
   output: {
-    path: path.join(__dirname, "static"),
+    path: path.resolve(__dirname, "static"),
+    publicPath: "/static/",
     filename: "bundle.min.js",
     crossOriginLoading: "anonymous"
   },
@@ -23,8 +22,9 @@ module.exports = {
       }
     ]
   },
+  devtool: "cheap-module-source-map",
   devServer: {
-    contentBase: path.join(__dirname, "static"),
+    contentBase: path.resolve(__dirname, "static"),
     proxy: {
             '/': {
                 target: 'http://localhost:5000',
