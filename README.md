@@ -2,9 +2,47 @@
 
 This is a streamlined, minimalist app designed to help users track their progress to form new habits.
 
-## Pre-Requirements
+---
+
+You must have the following installed globally on your machine to successfully install this project:
+
+## Server-Side Pre-Requirements
+
+- Python 3.6.5
+- Pip 10.0.1
+
+
+virtualenvwrapper is recommended to manage dependencies
+
+## Client-Side Pre-Requirements
 
 You must have the following installed globally on your machine to successfully install this project:
 
 - Node.js
 - Yarn
+
+## Setup
+
+From project root:
+
+```
+yarn install
+pip install -r requirements.txt
+```
+
+---
+
+There are some shell scripts to easily start things up:
+
+## Running Locally
+
+```
+./dev_run.sh
+```
+View the app on `http://localhost:8080/`
+
+## Deploying to Production
+
+```
+./deploy.sh
+```
