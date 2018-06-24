@@ -5,8 +5,11 @@
   "author": "Bill Gryta",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "start": "yarn run webpack-server & yarn run flask-server",
+    "build": "webpack --config webpack.prod.js",
+    "webpack-server": "webpack-dev-server --config webpack.dev.js",
+    "flask-server": "FLASK_ENV=development FLASK_APP=app.py flask run",
+    "deploy": "yarn run build && zappa update prod"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",

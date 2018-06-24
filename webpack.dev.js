@@ -1,12 +1,14 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/app.js",
+  entry: {
+      "styles": "./src/styles/styles.scss",
+      "bundle": "./src/app.js"
+  },
   output: {
-    path: path.join(__dirname, "static"),
-    publicPath: "/static/",
-    filename: "bundle.min.js",
-    crossOriginLoading: "anonymous"
+    path: path.resolve(__dirname, "/static"),
+    publicPath: '/static/',
+    filename: "[name].js"
   },
   mode: "development",
   module: {
