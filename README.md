@@ -28,7 +28,15 @@ From project root:
 ```
 yarn install
 pip install -r requirements.txt
+aws configure
 ```
+
+Then type in these values to configure aws:
+
+`AWS Access Key ID:` Get key from config file
+`AWS Secret Access Key:` Get secret from config file
+`Default region name:` us-west-2
+`Default output format [json]:` keep as json
 
 ---
 
