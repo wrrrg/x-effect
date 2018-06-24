@@ -1,11 +1,12 @@
 {
+  "esversion": 6,
   "env": {
     "browser": true,
     "commonjs": true,
     "es6": true,
     "node": true
   },
-  "extends": ["plugin:prettier/recommended"],
+  "extends": "airbnb",
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,

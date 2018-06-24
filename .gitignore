@@ -1,3 +1,12 @@
 node_modules
-playground
+yarn-error.log
+config.py
+handler_venv
+__pycache__
+*/bundle.min.js.map
+*.pyc
+
+.DS_Store
+.AppleDouble
+.LSOverride
 .vscode
