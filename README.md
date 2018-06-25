@@ -43,12 +43,12 @@ There are some shell scripts to easily start things up:
 ## Running Locally
 
 ```
-yarn run start
+yarn start
 ```
 View the app on `http://localhost:8080/`
 
 ## Deploying to Production
 
 ```
-yarn run deploy
+yarn deploy
 ```

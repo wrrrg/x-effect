@@ -9,7 +9,9 @@
     "build": "webpack --config webpack.prod.js",
     "webpack-server": "webpack-dev-server --config webpack.dev.js",
     "flask-server": "FLASK_ENV=development FLASK_APP=app.py flask run",
-    "deploy": "yarn run build && zappa update prod"
+    "deploy": "yarn run build && zappa update prod",
+    "clean-install": "rm -rf node_modules/ yarn.lock && yarn cache clean && yarn install",
+    "lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore; true"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -20,7 +22,6 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "normalize.css": "^8.0.0",
@@ -35,11 +36,10 @@
     "webpack": "^4.10.2"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^17.0.0",
-    "eslint-plugin-import": "^2.12.0",
+    "eslint": "^4.0.0",
+    "eslint-config-react": "^1.1.7",
     "eslint-plugin-react": "^7.9.1",
-    "webpack-cli": "^2.1.4",
+    "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
   }
 }

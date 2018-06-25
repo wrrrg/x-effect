@@ -1,20 +1,20 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
   entry: {
-      "styles": "./src/styles/styles.scss",
-      "bundle": "./src/app.js"
+      'styles': './src/styles/styles.scss',
+      'bundle': './src/app.js'
   },
   output: {
-    path: path.resolve(__dirname, "/static"),
+    path: path.resolve(__dirname, '/static'),
     publicPath: '/static/',
-    filename: "[name].js"
+    filename: '[name].js'
   },
-  mode: "development",
+  mode: 'development',
   module: {
     rules: [
       {
-        loader: "babel-loader",
+        loader: 'babel-loader',
         test: /\.js$/,
         exclude: /node_modules/
       },
@@ -24,9 +24,9 @@ module.exports = {
       }
     ]
   },
-  devtool: "cheap-module-source-map",
+  devtool: 'cheap-module-source-map',
   devServer: {
-    contentBase: path.join(__dirname, "static"),
+    contentBase: path.join(__dirname, 'static'),
     proxy: {
             '/': {
                 target: 'http://localhost:5000',

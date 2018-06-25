@@ -1,6 +1,6 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const path = require("path");
 
 module.exports = {
@@ -33,15 +33,15 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         use: [
            MiniCssExtractPlugin.loader,
-           'css-loader',
-           'sass-loader'
+           "css-loader",
+           "sass-loader"
         ]
       }
     ]
   },
   devtool: "source-map",
   plugins: [new MiniCssExtractPlugin({
-	  filename: `styles.min.css`
+	filename: "styles.min.css"
 	})]
 };
 console.log(module.exports.output.path)
