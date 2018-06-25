@@ -5,13 +5,13 @@
   "author": "Bill Gryta",
   "license": "MIT",
   "scripts": {
-    "start": "yarn run webpack-server & yarn run flask-server",
+    "start": "concurrently -k \"yarn run flask-server\" \"yarn run webpack-server\"",
     "build": "webpack --config webpack.prod.js",
     "webpack-server": "webpack-dev-server --config webpack.dev.js",
-    "flask-server": "FLASK_ENV=development FLASK_APP=app.py flask run",
-    "deploy": "yarn run build && zappa update prod",
     "clean-install": "rm -rf node_modules/ yarn.lock && yarn cache clean && yarn install",
-    "lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore; true"
+    "lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore; true",
+    "flask-server": "export FLASK_ENV=development FLASK_APP=app.py || SET \"FLASK_ENV=development\" \"FLASK_APP=app.py\" && flask run",
+    "deploy": "yarn run build && zappa update prod"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -21,6 +21,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "concurrently": "^3.6.0",
     "css-loader": "^0.28.11",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
