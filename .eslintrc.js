@@ -1,13 +1,17 @@
-{
-  "esversion": 6,
+module.exports = {
   "env": {
     "browser": true,
     "commonjs": true,
     "es6": true,
     "node": true
   },
-  "extends": "airbnb",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "parser": "babel-eslint",
   "parserOptions": {
+    "ecmaVersion": 6,
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
       "jsx": true
@@ -16,12 +20,9 @@
   },
   "plugins": ["react"],
   "rules": {
-    "no-unused-vars": [0],
-    "no-undef": [0],
-    "no-console": [0],
-    "indent": [0],
-    "linebreak-style": ["error", "windows"],
-    "quotes": ["error", "double"],
-    "semi": [0]
+    "linebreak-style": 0,
+    "no-console": 0,
+    "quotes": 0,
+    "no-mixed-spaces-and-tabs": 0
   }
 }
