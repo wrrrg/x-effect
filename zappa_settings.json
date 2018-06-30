@@ -1,6 +1,6 @@
 {
     "prod": {
-        "app_function": "app.app",
+        "app_function": "server.app.app",
         "aws_region": "us-west-2",
         "profile_name": "default",
         "project_name": "x-effect",
@@ -10,7 +10,6 @@
         "include": [],
         "environment_variables": {
           "FLASK_ENV": "production"
-        },
-        "touch_path": "/test",
+        }
     }
 }

@@ -1,6 +1,6 @@
 node_modules
 yarn-error.log
-config.py
+xeffect/config.py
 handler_venv
 __pycache__
 static/bundle.*

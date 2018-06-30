@@ -1,5 +1,4 @@
 import React from "react";
-import { Header } from "./../components/Header";
 import SingleX from "./../components/SingleX";
 
 export default class Index extends React.Component {
@@ -18,13 +17,10 @@ export default class Index extends React.Component {
   render() {
     return (
       <div>
-        <Header />
-        <div className="container">
           {!this.state.isClicked && (
             <SingleX handleXClick={this.handleXClick} />
           )}
           <p>{this.state.message}</p>
-        </div>
       </div>
     );
   }
