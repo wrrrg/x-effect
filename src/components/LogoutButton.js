@@ -1,29 +1,26 @@
-import React from 'react';
-import {  Redirect } from 'react-router-dom';
+import React from "react";
+import { Redirect } from "react-router-dom";
 
 class LogoutButton extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      'clicked': false,
-    }
+      clicked: false
+    };
   }
+
   handleLogout = () => {
-    localStorage.removeItem('xeffect-jwt');
-    this.setState({ 'clicked': true })
-  }
+    localStorage.removeItem("xeffect-jwt");
+    this.setState({ clicked: true });
+  };
 
   render() {
     if (this.state.clicked) {
-      return (
-        <Redirect to="/login" />
-      )
+      return <Redirect to="/login" />;
     } else {
-      return (
-        <button onClick={ this.handleLogout }>Logout</button>
-      )
+      return <button onClick={this.handleLogout}>Logout</button>;
     }
   }
 }
 
-export default LogoutButton
+export default LogoutButton;

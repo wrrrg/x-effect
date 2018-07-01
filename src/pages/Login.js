@@ -1,69 +1,68 @@
-import axios from 'axios';
+import axios from "axios";
 import React from "react";
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect, Link } from "react-router-dom";
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      'email': '',
-      'password': '',
-      'errorMessage': '',
-      'redirectToReferrer': false
-    }
+      email: "",
+      password: "",
+      errorMessage: "",
+      redirectToReferrer: false
+    };
   }
 
-  handleInputChange = (e) => {
+  handleInputChange = e => {
     const target = e.target;
     const name = target.name;
     const value = target.value;
 
     this.setState({
       [name]: value
-    })
-  }
+    });
+  };
 
-  handleSubmit = (e) => {
-    console.log("handleSubmit?")
+  handleSubmit = e => {
+    console.log("handleSubmit?");
     e.preventDefault();
-    axios.post('/api/auth/login', this.state)
-      .then((res) => {
+    axios
+      .post("/api/auth/login", this.state)
+      .then(res => {
         if (res.data.success) {
-          localStorage.setItem('xeffect-jwt', res.data.jwt)
+          localStorage.setItem("xeffect-jwt", res.data.jwt);
           this.setState({
             redirectToReferrer: true
-          })
+          });
         } else {
           this.setState({
-            'errorMessage': res.data.message,
-          })
+            errorMessage: res.data.message
+          });
         }
       })
-      .catch((err) => {
+      .catch(err => {
         // eventually handle this
         console.log(err);
-    })
+      });
   };
 
   getMessages = () => {
     if (this.state.errorMessage) {
-      return (
-        <p>{ this.state.errorMessage }</p>
-      )
+      return <p>{this.state.errorMessage}</p>;
     } else {
       return null;
     }
-  }
+  };
 
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/' } }
+    const { from } = this.props.location.state || { from: { pathname: "/" } };
     if (this.state.redirectToReferrer) {
-      return <Redirect to={from} />
+      return <Redirect to={from} />;
     }
     const messages = this.getMessages();
     return (
       <div>
-        { messages }
+        {messages}
         <form onSubmit={this.handleSubmit}>
           <label>
             Email
@@ -85,10 +84,14 @@ class Login extends React.Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
-        <Link to={{
-          pathname: "/auth/register",
-          state: { from }
-        }}>Register</Link>
+        <Link
+          to={{
+            pathname: "/auth/register",
+            state: { from }
+          }}
+        >
+          Register
+        </Link>
       </div>
     );
   }

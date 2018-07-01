@@ -1,73 +1,72 @@
-import axios from 'axios';
+import axios from "axios";
 import React from "react";
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect, Link } from "react-router-dom";
 
 class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      'first_name': '',
-      'last_name': '',
-      'email': '',
-      'password': '',
-      'conf_password': '',
-      'errorMessage': '',
-      'redirectToReferrer': false
-    }
+      first_name: "",
+      last_name: "",
+      email: "",
+      password: "",
+      conf_password: "",
+      errorMessage: "",
+      redirectToReferrer: false
+    };
   }
 
-  handleInputChange = (e) => {
+  handleInputChange = e => {
     const target = e.target;
     const name = target.name;
     const value = target.value;
 
     this.setState({
       [name]: value
-    })
-  }
+    });
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     if (this.state.password != this.state.conf_password) {
       this.setState({
-        'errorMessage': 'Passwords do not match'
-      })
+        errorMessage: "Passwords do not match"
+      });
       return false;
     }
     e.preventDefault();
-    axios.post('/api/auth/register', this.state)
-      .then((res) => {
+    axios
+      .post("/api/auth/register", this.state)
+      .then(res => {
         if (res.data.success) {
-          localStorage.setItem('xeffect-jwt', res.data.jwt)
+          localStorage.setItem("xeffect-jwt", res.data.jwt);
           this.setState({
-            'redirectToReferrer': true
-          })
+            redirectToReferrer: true
+          });
         } else {
           this.setState({
-            'errorMessage': res.data.message
-          })
+            errorMessage: res.data.message
+          });
         }
       })
-      .catch((err) => {
+      .catch(err => {
         // eventually handle this
         console.log(err);
-    })
+      });
   };
 
   renderMessage = () => {
     if (this.state.errorMessage) {
-      return (
-        <p>{ this.state.errorMessage }</p>
-      )
+      return <p>{this.state.errorMessage}</p>;
     } else {
       return null;
     }
-  }
+  };
 
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/' } }
+    const { from } = this.props.location.state || { from: { pathname: "/" } };
     if (this.state.redirectToReferrer) {
-      return <Redirect to={from} />
+      return <Redirect to={from} />;
     }
     const messages = this.renderMessage();
     return (
@@ -121,10 +120,14 @@ class Register extends React.Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
-        <Link to={{
-          pathname: "/auth/login",
-          state: { from }
-        }}>Login</Link>
+        <Link
+          to={{
+            pathname: "/auth/login",
+            state: { from }
+          }}
+        >
+          Login
+        </Link>
       </div>
     );
   }

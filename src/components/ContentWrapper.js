@@ -1,7 +1,7 @@
-import React from 'react';
-import LogoutButton from './LogoutButton';
-import Index from './../pages/Index';
-import { Route } from 'react-router-dom';
+import React from "react";
+import LogoutButton from "./LogoutButton";
+import Index from "./../pages/Index";
+import { Route } from "react-router-dom";
 
 const ContentWrapper = () => (
   <div>
@@ -10,9 +10,9 @@ const ContentWrapper = () => (
       <LogoutButton />
     </div>
     <div className="container">
-      <Route path="/" component={Index} / >
+      <Route path="/" component={Index} />
     </div>
   </div>
-)
+);
 
 export default ContentWrapper;

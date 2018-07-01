@@ -17,10 +17,8 @@ export default class Index extends React.Component {
   render() {
     return (
       <div>
-          {!this.state.isClicked && (
-            <SingleX handleXClick={this.handleXClick} />
-          )}
-          <p>{this.state.message}</p>
+        {!this.state.isClicked && <SingleX handleXClick={this.handleXClick} />}
+        <p>{this.state.message}</p>
       </div>
     );
   }
