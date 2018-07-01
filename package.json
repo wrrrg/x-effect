@@ -10,7 +10,7 @@
     "webpack-server": "webpack-dev-server --config webpack.dev.js",
     "clean-install": "rm -rf node_modules/ yarn.lock && yarn cache clean && yarn install",
     "lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore; true",
-    "flask-server": "export FLASK_ENV=development FLASK_APP=xeffect || SET \"FLASK_ENV=development\" \"FLASK_APP=xeffect\" && flask run",
+    "flask-server": "cross-env FLASK_ENV=development FLASK_APP=xeffect flask run",
     "deploy": "yarn build && zappa update prod",
     "get-config": "aws s3 cp s3://xeffect-config/config.py ./xeffect/",
     "save-config": "aws s3 cp ./xeffect/config.py s3://xeffect-config/"
@@ -27,6 +27,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "concurrently": "^3.6.0",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
