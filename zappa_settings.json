@@ -8,11 +8,13 @@
         "s3_bucket": "zappa-vm0zsirad",
         "timeout_seconds": 300,
         "domain": "xeffect.coltyharrison.com",
-        "include": [],
+        "slim_handler": true,
+        "exclude": ["concurrent"],
+        "include": [""],
         "environment_variables": {
           "FLASK_ENV": "production",
           "FLASK_APP": "xeffect"
         },
-        "touch_path": "/test"
+        "touch": false
     }
 }
