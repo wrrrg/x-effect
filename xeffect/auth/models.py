@@ -1,9 +1,9 @@
 from werkzeug.security import check_password_hash, generate_password_hash
 from xeffect.utils import AuditableModel
-from mongoengine import StringField, EmailField
+from mongoengine import Document, StringField, EmailField
 
 
-class User(AuditableModel):
+class User(Document, AuditableModel):
     first_name = StringField(max_length=200, required=True)
     last_name = StringField(max_length=200, required=True)
     email = EmailField(max_length=200, required=True)

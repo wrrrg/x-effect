@@ -24,7 +24,6 @@ class Login extends React.Component {
   };
 
   handleSubmit = e => {
-    console.log("handleSubmit?");
     e.preventDefault();
     axios
       .post("/api/auth/login", this.state)

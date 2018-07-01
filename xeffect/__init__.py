@@ -3,6 +3,7 @@ import sys
 
 from . import config
 from .auth.views import bp as auth_bp
+from .habits.views import bp as habits_bp
 from flask import Flask, render_template
 from mongoengine import connect
 
@@ -15,6 +16,7 @@ app = Flask(__name__, template_folder='../templates',
 app.config.from_object(config.get_config())
 db = connect(**app.config['MONGO_SETTINGS'])
 app.register_blueprint(auth_bp)
+app.register_blueprint(habits_bp)
 
 
 @app.route('/test')
