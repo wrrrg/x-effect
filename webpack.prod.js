@@ -44,4 +44,3 @@ module.exports = {
 	filename: "styles.min.css"
 	})]
 };
-console.log(module.exports.output.path)
