@@ -1,15 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 import React from "react";
-import { Route, Redirect } from 'react-router-dom';
-
+import { Route, Redirect } from "react-router-dom";
 
 class PrivateRoute extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      'loaded': false,
-      'isAuthenticated': false,
-    }
+      loaded: false,
+      isAuthenticated: false
+    };
   }
 
   componentDidMount() {
@@ -17,34 +16,39 @@ class PrivateRoute extends React.Component {
   }
 
   authenticate = () => {
-    const jwt = localStorage.getItem('xeffect-jwt');
+    const jwt = localStorage.getItem("xeffect-jwt");
     if (!jwt) {
-      this.setState({loaded: true, isAuthenticated: false})
+      this.setState({ loaded: true, isAuthenticated: false });
     } else {
-      axios.post('/api/auth/authenticate', {
-          token: jwt
-        }, {
-          headers:{
-          'Content-Type': 'application/json'
-        }
-      })
-      .then((res) => {
-        this.setState({
-          loaded: true,
-          isAuthenticated: res.data.success
+      axios
+        .post(
+          "/api/auth/authenticate",
+          {
+            token: jwt
+          },
+          {
+            headers: {
+              "Content-Type": "application/json"
+            }
+          }
+        )
+        .then(res => {
+          this.setState({
+            loaded: true,
+            isAuthenticated: res.data.success
+          });
         })
-      })
-      .catch((err) => {
-        // eventually handle this
-        console.log(err);
-      });
+        .catch(err => {
+          // eventually handle this
+          console.log(err);
+        });
     }
-  }
+  };
 
   render() {
-    const { component: Component, ...rest } = this.props
-    const { loaded, isAuthenticated } = this.state
-    if (!loaded) return null
+    const { component: Component, ...rest } = this.props;
+    const { loaded, isAuthenticated } = this.state;
+    if (!loaded) return null;
     return (
       <Route
         {...rest}
@@ -58,10 +62,10 @@ class PrivateRoute extends React.Component {
                 from: props.location
               }}
             />
-          )
+          );
         }}
       />
-    )
+    );
   }
 }
 

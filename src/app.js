@@ -1,12 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import PrivateRoute from './components/PrivateRoute';
-import AuthWrapper from './components/AuthWrapper';
-import ContentWrapper from './components/ContentWrapper';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import PrivateRoute from "./components/PrivateRoute";
+import AuthWrapper from "./components/AuthWrapper";
+import ContentWrapper from "./components/ContentWrapper";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from "react-router-dom";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
-
 
 ReactDOM.render(
   <Router>
@@ -18,4 +22,5 @@ ReactDOM.render(
       </Switch>
     </div>
   </Router>,
-  document.getElementById("app"));
+  document.getElementById("app")
+);
