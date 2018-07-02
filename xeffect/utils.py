@@ -1,13 +1,13 @@
 import arrow
 import jwt
 from flask import current_app
-from mongoengine import Document, DateTimeField
+from mongoengine import DateTimeField
 
 # 1 day long
 TOKEN_EXPIRATION = 86400
 
 
-class AuditableModel(Document):
+class AuditableModel(object):
     created_at = DateTimeField(default=arrow.now().datetime)
     updated_at = DateTimeField(default=arrow.now().datetime)
 
