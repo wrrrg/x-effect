@@ -2,10 +2,10 @@ from .models import User
 from flask import Blueprint, request, jsonify
 from xeffect.utils import decode_jwt_and_check_if_expired, generate_jwt
 
-bp = Blueprint('auth', __name__, url_prefix='/api/auth')
+auth_bp = Blueprint('auth', __name__)
 
 
-@bp.route('/register', methods=['POST'])
+@auth_bp.route('/register', methods=['POST'])
 def register():
     req = request.json
     try:
@@ -22,7 +22,7 @@ def register():
                         'jwt': generate_jwt(new_user.get_id())})
 
 
-@bp.route('/login', methods=['POST'])
+@auth_bp.route('/login', methods=['POST'])
 def login():
     req = request.json
     try:
@@ -37,10 +37,10 @@ def login():
         return jsonify({"success": False, "message": "We can not log you in."})
 
 
-@bp.route('/authenticate', methods=['POST'])
+@auth_bp.route('/authenticate', methods=['POST'])
 def authenticate():
     req = request.json
-    expired = decode_jwt_and_check_if_expired(req['token'])
+    expired, _ = decode_jwt_and_check_if_expired(req['token'])
     if expired:
         return jsonify({'success': False})
     else:
