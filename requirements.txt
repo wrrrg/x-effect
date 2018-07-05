@@ -20,11 +20,9 @@ docutils==0.14            # via awscli, botocore, zappa
 durationpy==0.5           # via zappa
 first==2.0.1              # via pip-tools
 flask-cli==0.4.0
-flask-oauth==0.12
 flask==1.0.2
 future==0.16.0            # via zappa
 hjson==3.0.1              # via zappa
-httplib2==0.11.3          # via oauth2
 idna==2.7                 # via requests
 itsdangerous==0.24        # via flask
 jinja2==2.10              # via flask
@@ -33,7 +31,6 @@ kappa==0.6.0              # via zappa
 lambda-packages==0.20.0   # via zappa
 markupsafe==1.0           # via jinja2
 mongoengine==0.15.0
-oauth2==1.9.0.post1       # via flask-oauth
 pip-tools==2.0.2
 placebo==0.8.1            # via kappa
 pyasn1==0.4.3             # via rsa
