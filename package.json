@@ -14,10 +14,7 @@
     "flask-server": "cross-env FLASK_ENV=development FLASK_APP=xeffect/app.py flask run",
     "deploy": "yarn build && zappa update prod",
     "get-config": "aws s3 cp s3://xeffect-config/config.py ./xeffect/",
-    "save-config": "aws s3 cp ./xeffect/config.py s3://xeffect-config/",
-    "create-migration": "alley ./xeffect/ create xeffect_migrations",
-    "show-migrations": "alley ./xeffect/ status",
-    "migrate": "alley ./xeffect/migrations/ up"
+    "save-config": "aws s3 cp ./xeffect/config.py s3://xeffect-config/"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0",
