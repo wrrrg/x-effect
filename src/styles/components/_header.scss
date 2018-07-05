@@ -1,8 +1,15 @@
+/* Component - Header
+******************************************************************************/
+
 .header {
   color: white;
   background: $dark-blue;
-  margin-bottom: $l-size;
+  margin-bottom: $m-size;
   padding: $m-size 0;
+
+  .btn-logout {
+    margin: 20px;
+  }
 }
 
 .header__title {

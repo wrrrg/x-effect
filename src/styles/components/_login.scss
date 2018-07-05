@@ -1,0 +1,38 @@
+/* Component - Login
+******************************************************************************/
+
+#auth-container {
+  display: flex;
+  justify-content: center;
+
+  .auth-login, .auth-register {
+    width: 100%;
+    padding: 30px 20px;
+
+    @include tablet {
+      width: 70%;
+    }
+    @include desktop {
+      width: 40%;
+    }
+
+    .auth-form {
+      button {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+
+    button {
+      display: block !important;
+      width: 100% !important;
+      margin: 10px 0;
+      height: 45px;
+    }
+
+    p, a {
+      text-align: center;
+      display: block;
+    }
+  }
+}

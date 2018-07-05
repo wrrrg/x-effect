@@ -7,6 +7,7 @@ from mongoengine import (
     ObjectIdField, DecimalField, EmbeddedDocument, ReferenceField, QuerySet
 )
 
+
 # 1 day long
 TOKEN_EXPIRATION = 86400
 CONVERT_MAP = {

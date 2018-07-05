@@ -1,7 +1,7 @@
 arrow
 mongoengine
 zappa
-flask==1.0.2
+flask
 flask_cli
 PyJWT
 pip-tools

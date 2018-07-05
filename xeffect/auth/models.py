@@ -7,7 +7,14 @@ class User(Document, AuditableModel):
     first_name = StringField(max_length=200, required=True)
     last_name = StringField(max_length=200, required=True)
     email = EmailField(max_length=200, required=True)
-    password = StringField(max_length=200)
+    password = StringField(max_length=200, default=None)
+
+    FACEBOOK = "facebook"
+    GOOGLE = "google"
+    EMAIL = "email"
+    SOCIAL_CHOICES = (FACEBOOK, GOOGLE, EMAIL)
+
+    auth_type = StringField(choices=SOCIAL_CHOICES, default=None)
 
     meta = {'db_alias': 'default', 'collections': 'users'}
 
