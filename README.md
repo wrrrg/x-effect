@@ -9,7 +9,7 @@ You must have the following installed globally on your machine to successfully i
 ## Server-Side Pre-Requirements
 
 - Python 3.6.5
-- Pip 10.0.1
+- Pip 10.0.0
 
 
 virtualenvwrapper is recommended to manage dependencies

@@ -2,7 +2,9 @@ import React from "react";
 
 const SingleX = props => (
   <div>
-    <button onClick={props.handleXClick}>X</button>
+    <button className="btn-primary" onClick={props.handleXClick}>
+      X
+    </button>
   </div>
 );
 

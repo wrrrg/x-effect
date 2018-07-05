@@ -26,38 +26,56 @@ class Register extends React.Component {
     });
   };
 
+  checkInput = inputs => {
+    for (var key in inputs) {
+      if (inputs[key] == "") {
+        return "Please fill out the missing fields";
+      }
+    }
+
+    if (this.state.password != this.state.conf_password) {
+      return "Passwords do not match";
+    }
+  };
+
   handleSubmit = e => {
     e.preventDefault();
-    if (this.state.password != this.state.conf_password) {
+    const inputError = this.checkInput({
+      "First Name": this.state.first_name,
+      "Last Name": this.state.last_name,
+      Email: this.state.email,
+      Password: this.state.password,
+      "Confirm Password": this.state.conf_password
+    });
+    if (!inputError) {
+      axios
+        .post("/api/auth/register", this.state)
+        .then(res => {
+          if (res.data.success) {
+            localStorage.setItem("xeffect-jwt", res.data.jwt);
+            this.setState({
+              redirectToReferrer: true
+            });
+          } else {
+            this.setState({
+              errorMessage: res.data.message
+            });
+          }
+        })
+        .catch(err => {
+          // eventually handle this
+          console.log(err);
+        });
+    } else {
       this.setState({
-        errorMessage: "Passwords do not match"
+        errorMessage: inputError
       });
-      return false;
     }
-    e.preventDefault();
-    axios
-      .post("/api/auth/register", this.state)
-      .then(res => {
-        if (res.data.success) {
-          localStorage.setItem("xeffect-jwt", res.data.jwt);
-          this.setState({
-            redirectToReferrer: true
-          });
-        } else {
-          this.setState({
-            errorMessage: res.data.message
-          });
-        }
-      })
-      .catch(err => {
-        // eventually handle this
-        console.log(err);
-      });
   };
 
   renderMessage = () => {
     if (this.state.errorMessage) {
-      return <p>{this.state.errorMessage}</p>;
+      return <div className="error-message">{this.state.errorMessage}</div>;
     } else {
       return null;
     }
@@ -70,9 +88,9 @@ class Register extends React.Component {
     }
     const messages = this.renderMessage();
     return (
-      <div>
+      <div className="auth-register">
         {messages}
-        <form onSubmit={this.handleSubmit}>
+        <form className="auth-form" onSubmit={this.handleSubmit}>
           <label>
             First Name
             <input
@@ -118,7 +136,7 @@ class Register extends React.Component {
               onChange={this.handleInputChange}
             />
           </label>
-          <input type="submit" value="Submit" />
+          <input className="btn-primary" type="submit" value="Submit" />
         </form>
         <Link
           to={{

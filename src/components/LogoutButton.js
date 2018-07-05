@@ -16,9 +16,13 @@ class LogoutButton extends React.Component {
 
   render() {
     if (this.state.clicked) {
-      return <Redirect to="/login" />;
+      return <Redirect to="/auth/login" />;
     } else {
-      return <button onClick={this.handleLogout}>Logout</button>;
+      return (
+        <button className="btn-primary btn-logout" onClick={this.handleLogout}>
+          Logout
+        </button>
+      );
     }
   }
 }
