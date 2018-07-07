@@ -3,9 +3,10 @@
 @import "./base/fonts";
 @import "./base/buttons";
 @import "./components/container";
+@import "./components/habitscontainer";
 @import "./components/header";
+@import "./components/singlehabit";
 @import "./components/login";
-
 
 form {
   input {
