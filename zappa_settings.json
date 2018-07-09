@@ -1,6 +1,6 @@
 {
     "prod": {
-        "app_function": "app.app",
+        "app_function": "xeffect.app.app",
         "aws_region": "us-west-2",
         "profile_name": "default",
         "project_name": "x-effect",
@@ -8,9 +8,7 @@
         "s3_bucket": "zappa-vm0zsirad",
         "timeout_seconds": 300,
         "domain": "xeffect.coltyharrison.com",
-        "slim_handler": true,
-        "exclude": ["concurrent"],
-        "include": [""],
+        "exclude": ["node_modules", "src"],
         "environment_variables": {
           "FLASK_ENV": "production",
           "FLASK_APP": "xeffect"

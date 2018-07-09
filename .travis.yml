@@ -1,0 +1,26 @@
+language: python
+
+python:
+  - "3.6"
+
+install:
+  - pip install -r requirements.txt
+  - yarn install --no-optional
+
+script:
+  # Set AWS credentials
+  - mkdir -p ~/.aws
+  - echo "[default]" >> ~/.aws/credentials
+  - echo "aws_access_key_id = "$AWS_ACCESS_KEY_ID >> ~/.aws/credentials
+  - echo "aws_secret_access_key = "$AWS_SECRET_ACCESS_KEY >> ~/.aws/credentials
+
+  # download the config file from s3
+  - yarn get-config
+
+  # Build with webpack then deploy using zappa
+  - yarn deploy
+
+# branches to deploy from
+branches:
+  only:
+  - master
