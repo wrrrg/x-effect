@@ -1,0 +1,24 @@
+.habit__single-div {
+  margin: 0.3rem auto;
+  padding: 2rem;
+  width: 60%;
+}
+
+.habit__complete {
+  background: $color-habit-div-complete-background;
+  border: 2px solid black;
+  .btn-habit-x {
+    background: lighten($color-button-primary-background, 90%);
+    color: $color-habit-button-complete-font;
+  }
+}
+
+// Habit X button
+.btn-habit-x {
+  float: right;
+}
+
+.p-habit-x {
+  float: left;
+  margin-right: 4rem;
+}

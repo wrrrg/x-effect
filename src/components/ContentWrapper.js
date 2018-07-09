@@ -1,6 +1,6 @@
 import React from "react";
 import LogoutButton from "./LogoutButton";
-import Index from "./../pages/Index";
+import Index from "../pages/VisibleHabitsWrapper";
 import { Route } from "react-router-dom";
 
 const ContentWrapper = () => (
