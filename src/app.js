@@ -17,11 +17,25 @@ store.subscribe(() => {
 
 // each dispatch updates the store, in this case we are adding habits using my actions/habits function.
 // You can repeat this with different data to map more habits
+
+// id: PropTypes.string.isRequired,
+//   completed: PropTypes.bool.isRequired,
+//     description: PropTypes.string.isRequired,
+//       name: PropTypes.string.isRequired,
+//         frequency: PropTypes.string,
+//           goalQuantity: PropTypes.number,
+//             goalConsecutive: PropTypes.number,
+//               endDate: PropTypes.number,
 store.dispatch(
   addHabit({
     description: "Didn't smoke cigarettes today",
     name: "Quit Smoking",
-    createdAt: 67676767
+    createdAt: 67676767,
+    completed: false,
+    frequency: "daily",
+    goalQuantity: null,
+    goalConsecutive: null,
+    endDate: 800000000000
   })
 );
 
@@ -29,7 +43,12 @@ store.dispatch(
   addHabit({
     description: "Stretched 20 Minutes Today",
     name: "Improve Flexibility",
-    createdAt: 555555
+    createdAt: 555555,
+    completed: false,
+    frequency: "daily",
+    goalQuantity: null,
+    goalConsecutive: null,
+    endDate: 900000000
   })
 );
 

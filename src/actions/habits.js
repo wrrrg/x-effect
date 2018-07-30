@@ -2,11 +2,25 @@
 
 import uuid from "uuid";
 
+// addHabit({
+//   description: "Didn't smoke cigarettes today",
+//   name: "Quit Smoking",
+//   createdAt: 67676767,
+//   completed: false,
+//   frequency: "daily",
+//   goalQuantity: null,
+//   goalConsecutive: null,
+//   endDate: 800000000000
+// })
 export const addHabit = ({
   description = "",
   name = "",
   createdAt = 0,
-  completed = false
+  completed = false,
+  frequency = "daily",
+  goalQuantity = null,
+  goalConsecutive = null,
+  endDate = 1
 } = {}) => ({
   type: "ADD_HABIT",
   habit: {
@@ -14,7 +28,11 @@ export const addHabit = ({
     description,
     name,
     createdAt,
-    completed
+    completed,
+    frequency,
+    goalQuantity,
+    goalConsecutive,
+    endDate
   }
 });
 
