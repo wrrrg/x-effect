@@ -1,16 +1,16 @@
 import React from "react";
-import LogoutButton from "./LogoutButton";
+
 import Index from "../pages/VisibleHabitsWrapper";
+import AddHabit from "../pages/AddHabit";
 import { Route } from "react-router-dom";
+import Header from "./Header";
 
 const ContentWrapper = () => (
   <div>
-    <div className="header">
-      <h1 className="header__title">Did you meet your goal today?</h1>
-      <LogoutButton />
-    </div>
+    <Header />
     <div className="container">
       <Route path="/" component={Index} />
+      <Route path="/add" component={AddHabit} />
     </div>
   </div>
 );

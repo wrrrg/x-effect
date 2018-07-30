@@ -13,6 +13,11 @@
   }
 }
 
+.habit__name {
+  font-weight: 700;
+  padding-right: $s-size;
+}
+
 // Habit X button
 .btn-habit-x {
   float: right;

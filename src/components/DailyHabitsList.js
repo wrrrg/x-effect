@@ -14,8 +14,13 @@ const DailyHabitsList = ({ habits, updateHabit }) => (
       {habits.map((habit, index) => (
         <HabitListItem
           key={index}
+          name={habit.name}
           description={habit.description}
           completed={habit.completed}
+          frequency={habit.frequency}
+          goalQuantity={habit.goalQuantity}
+          goalConsecutive={habit.goalConsecutive}
+          endDate={habit.endDate}
           handleXClick={() => updateHabit(habit.id)}
         />
       ))}
@@ -29,7 +34,11 @@ DailyHabitsList.propTypes = {
       id: PropTypes.string.isRequired,
       completed: PropTypes.bool.isRequired,
       description: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired
+      name: PropTypes.string.isRequired,
+      frequency: PropTypes.string,
+      goalQuantity: PropTypes.number,
+      goalConsecutive: PropTypes.number,
+      endDate: PropTypes.number
     }).isRequired
   ).isRequired,
   updateHabit: PropTypes.func.isRequired

@@ -2,6 +2,7 @@ import React from "react";
 import PrivateRoute from "../components/PrivateRoute";
 import AuthWrapper from "../components/AuthWrapper";
 import ContentWrapper from "../components/ContentWrapper";
+import AddHabit from "../pages/AddHabit";
 import {
   BrowserRouter as Router,
   Route,
@@ -15,6 +16,7 @@ const AppRouter = () => (
       <Switch>
         <PrivateRoute exact path="/" component={ContentWrapper} />
         <Route path="/auth" component={AuthWrapper} />
+        <Route path="/add" component={AddHabit} />
         <Redirect to="/" />
       </Switch>
     </div>
