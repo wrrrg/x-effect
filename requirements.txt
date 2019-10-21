@@ -7,6 +7,7 @@
 argcomplete==1.9.3        # via zappa
 arrow==0.12.1
 awscli==1.15.49
+backports.functools-lru-cache==1.5  # via arrow
 base58==1.0.0             # via zappa
 boto3==1.7.45
 botocore==1.10.48         # via awscli, boto3, s3transfer, zappa
@@ -22,6 +23,7 @@ first==2.0.1              # via pip-tools
 flask-cli==0.4.0
 flask==1.0.2
 future==0.16.0            # via zappa
+futures==3.2.0            # via s3transfer, zappa
 hjson==3.0.1              # via zappa
 idna==2.7                 # via requests
 itsdangerous==0.24        # via flask
@@ -48,7 +50,7 @@ tqdm==4.19.1              # via zappa
 troposphere==2.3.0        # via zappa
 unidecode==1.0.22         # via python-slugify
 urllib3==1.23             # via requests
-werkzeug==0.14.1          # via flask, zappa
+werkzeug==0.15.3          # via flask, zappa
 wheel==0.31.1             # via zappa
 wsgi-request-logger==0.4.6  # via zappa
 zappa==0.46.1
